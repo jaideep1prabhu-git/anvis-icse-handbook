@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1F2023" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Anvi's Handbook">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Anvi's ICSE Class 10 Formula & Reference Handbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F6FB; --grid:#DDE5F1; --card:#FFFFFF; --ink:#14213D; --mute:#55627A; --line:#D3DCE9;
+  --m:#2A5BD7; --m-s:#E3EBFD; --p:#0B7A62; --p-s:#DDF3EC; --c:#A82A72; --c-s:#F8E3EF;
+  --accent:var(--m); --accent-soft:var(--m-s);
+  --ui:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --math:'STIX Two Text',Georgia,'Times New Roman',serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme]){
+    --bg:#17181A; --grid:#1F2022; --card:#1F2023; --ink:#E8E6E1; --mute:#A4A39E; --line:#36373C;
+    --m:#8FB0F2; --m-s:#2A3142; --p:#6FCDB0; --p-s:#223630; --c:#E59ABD; --c-s:#3D2832; color-scheme:dark;
+  }
+}
+:root[data-theme="light"]{color-scheme:light}
+:root[data-theme="paper"]{
+  --bg:#F6F0E4; --grid:#E8DFCB; --card:#FFFBF2; --ink:#2B2418; --mute:#6E6451; --line:#DDD1B9;
+  --m:#2F5BB7; --m-s:#E8ECF6; --p:#1E7A5F; --p-s:#E0F0E4; --c:#A3306F; --c-s:#F6E3EA; color-scheme:light;
+}
+:root[data-theme="charcoal"]{
+  --bg:#17181A; --grid:#1F2022; --card:#1F2023; --ink:#E8E6E1; --mute:#A4A39E; --line:#36373C;
+    --m:#8FB0F2; --m-s:#2A3142; --p:#6FCDB0; --p-s:#223630; --c:#E59ABD; --c-s:#3D2832; color-scheme:dark;
+}
+:root[data-theme="board"]{
+  --bg:#14231D; --grid:#1A2D25; --card:#1A2C24; --ink:#EEF1E6; --mute:#A9B8AB; --line:#2F4A3D;
+  --m:#A9C8F5; --m-s:#23394A; --p:#8EE0B5; --p-s:#1F4A38; --c:#F2A6C8; --c-s:#4A2C3C; color-scheme:dark;
+}
+:root[data-theme="black"]{
+  --bg:#000000; --grid:#0A0A0A; --card:#0E0E0F; --ink:#EDEDED; --mute:#9A9A9A; --line:#2A2A2A;
+  --m:#86A5E8; --m-s:#151C2E; --p:#5CC9A8; --p-s:#0E2A23; --c:#E58FB8; --c-s:#2E1520; color-scheme:dark;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--bar-h,120px) + 10px);background:var(--bg)}
+*,*::before,*::after{box-sizing:inherit}
+[hidden]{display:none !important}
+body{margin:0;font-family:var(--ui);color:var(--ink);background-color:var(--bg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:26px 26px;line-height:1.5}
+body[data-sub="m"]{--accent:var(--m);--accent-soft:var(--m-s)}
+body[data-sub="p"]{--accent:var(--p);--accent-soft:var(--p-s)}
+body[data-sub="c"]{--accent:var(--c);--accent-soft:var(--c-s)}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:3px solid var(--accent)}
+.bar-in{max-width:1200px;margin:0 auto;padding:.7rem 1rem .5rem}
+.title-row{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;justify-content:space-between}
+h1{margin:0;font-size:1.25rem;line-height:1.2;font-weight:700}
+.sub{margin:.1rem 0 0;color:var(--mute);font-size:.85rem}
+.tools{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center}
+.search{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:6px;padding:.45rem .7rem;min-width:min(100%,15rem)}
+.search:focus-visible,.btn:focus-visible,.theme select:focus-visible,.tab:focus-visible,.star:focus-visible,.toc a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{font:inherit;font-size:.9rem;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:6px;padding:.42rem .7rem;cursor:pointer}
+.theme{display:inline-flex;align-items:center;gap:.4rem;font-size:.9rem;color:var(--mute)}
+.theme select{cursor:pointer}
+.btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--card)}
+.tabs{display:flex;gap:.4rem;margin-top:.55rem;overflow-x:auto;padding-bottom:2px}
+.tab{font:inherit;font-weight:700;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);padding:.45rem 1rem;border-radius:6px 6px 0 0;cursor:pointer;white-space:nowrap}
+.tab small{font-weight:400;color:var(--mute);margin-left:.35rem}
+.tab[data-s="m"][aria-selected="true"]{background:var(--m);border-color:var(--m);color:var(--card)}
+.tab[data-s="p"][aria-selected="true"]{background:var(--p);border-color:var(--p);color:var(--card)}
+.tab[data-s="c"][aria-selected="true"]{background:var(--c);border-color:var(--c);color:var(--card)}
+.tab[aria-selected="true"] small{color:inherit;opacity:.85}
+
+.layout{max-width:1200px;margin:0 auto;padding:1rem;display:grid;grid-template-columns:220px minmax(0,1fr);gap:1.4rem;align-items:start}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--bar-h,120px) + 12px);max-height:calc(100vh - var(--bar-h,120px) - 40px);overflow:auto;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px;padding:.5rem}
+.toc a{display:block;padding:.35rem .5rem;border-radius:4px;color:var(--ink);text-decoration:none;font-size:.9rem}
+.toc a:hover{background:var(--accent-soft)}
+main{min-width:0}
+.subject-title{margin:1.6rem 0 .2rem;font-size:1.5rem}
+.chap{margin-bottom:2.2rem}
+.chead{display:flex;align-items:baseline;gap:.8rem;margin:0 0 .8rem;padding-bottom:.35rem;border-bottom:2px solid var(--accent)}
+.chead h2{margin:0;font-family:var(--math);font-size:1.6rem;font-weight:600;line-height:1.2}
+.ccount{color:var(--mute);font-size:.85rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,310px),1fr));gap:.7rem}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px;padding:.7rem 2.3rem .75rem .85rem;min-width:0}
+.card.wide{grid-column:1/-1;padding-right:2.6rem}
+.clabel{font-weight:700;font-size:.92rem;margin-bottom:.25rem}
+.badge{display:inline-block;margin-left:.5rem;font-weight:400;font-size:.72rem;color:var(--mute);border:1px solid var(--line);border-radius:10px;padding:0 .5rem;vertical-align:middle}
+.formula{font-family:var(--math);font-size:1.22rem;line-height:1.95;color:var(--accent);overflow-wrap:anywhere}
+.cnote{color:var(--mute);font-size:.85rem;margin-top:.2rem;overflow-wrap:anywhere}
+.star{position:absolute;top:.35rem;right:.4rem;border:0;background:transparent;color:var(--mute);font-size:1.3rem;line-height:1;cursor:pointer;padding:.25rem;border-radius:4px}
+.star[aria-pressed="true"]{color:var(--accent)}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.4rem .6rem;text-align:left;vertical-align:top}
+th{background:var(--accent-soft);font-weight:700}
+td{font-family:var(--math);font-size:1.02rem}
+.card ul{margin:.1rem 0 0;padding-left:1.15rem}
+.card li{margin:.2rem 0;font-family:var(--math);font-size:1.02rem}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em;line-height:1.25}
+.fr .nu{border-bottom:1.5px solid currentColor;padding:0 .3em}
+.fr .de{padding:0 .3em}
+.rad .ov{border-top:1.5px solid currentColor;padding:0 .12em;margin-left:1px}
+.traps{margin-top:.8rem;background:var(--accent-soft);border-radius:4px;padding:.45rem .8rem}
+.traps summary{cursor:pointer;font-weight:700}
+.traps ul{margin:.4rem 0 .2rem;padding-left:1.1rem}
+.traps li{margin:.2rem 0}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:4px;padding:1.2rem;color:var(--mute)}
+footer{max-width:1200px;margin:0 auto;padding:0 1rem 2rem;color:var(--mute);font-size:.85rem}
+footer .credit{margin-top:1.2rem;padding-top:.8rem;border-top:2px solid var(--accent);text-align:center;color:var(--ink);font-size:.95rem;line-height:1.7}
+footer .credit span{color:#D6336C}
+
+@media (max-width:820px){
+  .layout{grid-template-columns:minmax(0,1fr);padding:.7rem}
+  .toc{position:static;max-height:none;display:flex;gap:.3rem;overflow-x:auto;border-left:1px solid var(--line);border-top:4px solid var(--accent)}
+  .toc a{white-space:nowrap;border:1px solid var(--line)}
+  .chead h2{font-size:1.35rem}
+}
+@media print{
+  html,body{background:#fff !important}
+  .bar,.toc,.tools,.star,footer{display:none !important}
+  .layout{display:block;padding:0}
+  .card{break-inside:avoid;color:#000}
+  .formula{color:#000}
+  .subject-title{display:block !important}
+}
+</style>
+</head>
+<body data-sub="m">
+<div class="bar" id="bar"><div class="bar-in">
+  <div class="title-row">
+    <div>
+      <h1>Anvi's Formula Handbook</h1>
+      <p class="sub">Class 10 ICSE Master Reference (2027) · Mathematics, Physics and Chemistry</p>
+    </div>
+    <div class="tools">
+      <input class="search" id="q" type="search" placeholder="Search a formula or topic" aria-label="Search formulas">
+      <button class="btn" id="starBtn" aria-pressed="false">★ Starred <span id="starCount">0</span></button>
+      <label class="theme">Theme <select id="themeSel" class="btn"><option value="auto">Auto</option><option value="light">Light</option><option value="paper">Paper</option><option value="charcoal">Charcoal</option><option value="board">Blackboard</option><option value="black">Black</option></select></label>
+      <button class="btn" id="printBtn">Print / PDF</button>
+    </div>
+  </div>
+  <div class="tabs" id="tabs" role="tablist" aria-label="Subjects"></div>
+</div></div>
+<div class="layout">
+  <nav class="toc" id="toc" aria-label="Chapters"></nav>
+  <main id="main"></main>
+</div>
+<footer>
+  <p class="note">Tap ☆ on any card to build your own revision list. “Cross-check” marks items that go slightly beyond the board requirement or differ between textbooks. Always confirm against the current CISCE syllabus and your textbook, and use the atomic masses and constants given in the question paper.</p>
+  <p class="credit"><strong>Anvi's ICSE Formula Handbook © 2027.</strong> Built for Class 10 Board Exam Success.<br>Prepared with <span aria-label="love">❤</span> by Pappa</p>
+</footer>
+<script>
+const DATA={};
+DATA.m={name:'Mathematics',ch:[
+{id:'m-gst',t:'GST (Goods and Services Tax)',f:[
+["GST on an item","GST = {{r||100}} × Taxable value","r = GST rate in %. Taxable value = price after discount"],
+["Price paid (including GST)","Price = Base value + GST = Base × (1 + {{r||100}})",""],
+["Base value from a GST-inclusive price","Base = Final price × {{100||100 + r}}",""],
+["Discount","Selling price = Marked price − Discount ; Discount = Marked price × {{d||100}}","GST is charged on the discounted price"],
+["Same state sale (intra-state)","CGST = SGST = {{1||2}} × GST ; IGST = 0","Seller and buyer in the same state"],
+["Different state sale (inter-state)","IGST = full GST ; CGST = SGST = 0",""],
+["GST payable to the government","Net GST = Output tax − Input tax credit","Output tax = GST collected on sales. Input tax = GST paid on purchases"],
+["Marked price to bill amount","Bill = MP − Discount + GST on (MP − Discount)",""]
+],tips:["GST is on the price AFTER discount unless the question says otherwise.","Price 'inclusive of tax' means use the reverse formula (divide by 1 + r/100).","CGST and SGST are always equal and each is half of GST."]},
+
+{id:'m-bank',t:'Banking (Recurring Deposit)',f:[
+["Interest on a recurring deposit","I = P × {{n(n + 1)||2 × 12}} × {{r||100}}","P = monthly instalment, n = number of months, r = annual rate %"],
+["Maturity value","MV = P × n + I","Total deposited plus interest"],
+["Total money deposited","Deposit = P × n",""],
+["Rate (reverse)","r = {{I × 2400||P × n(n + 1)}}",""],
+["Months from years","n = years × 12",""]
+],tips:["n is in MONTHS and r is per YEAR. Do not multiply by time again.","Interest is earned on each instalment for a different number of months, which is why n(n+1)/2 appears."]},
+
+{id:'m-share',t:'Shares and Dividends',f:[
+["Nominal (face) value","NV = value printed on the share",""],
+["Market value","MV = NV + premium ; MV = NV − discount ; at par MV = NV",""],
+["Number of shares","N = {{Total investment||Cost of one share}}","Cost of one share = MV (+ brokerage)"],
+["Investment","Investment = N × MV (+ brokerage)",""],
+["Brokerage","Brokerage = {{b||100}} × MV × N","Add when buying, subtract when selling"],
+["Dividend","Dividend = {{Rate||100}} × NV × N","Dividend is always on NOMINAL value"],
+["Return on investment","Return % = {{Annual income||Investment}} × 100","Use it to compare two investments"],
+["Profit or loss on selling","Gain = (SP − CP) × N","SP and CP are market values per share"]
+],tips:["Dividend uses nominal value. Investment uses market value. Never swap them.","If the question says 'shares bought at a premium', add the premium to NV."]},
+
+{id:'m-ineq',t:'Linear Inequations',f:[
+{title:'Rules',list:["Add or subtract the same number on both sides: the sign stays the same.","Multiply or divide by a POSITIVE number: the sign stays the same.","Multiply or divide by a NEGATIVE number: reverse the sign (< becomes >, ≤ becomes ≥).","Compound form: a < x ≤ b means x > a and x ≤ b together.","Number line: open circle for < and >, filled (solid) circle for ≤ and ≥."]},
+{title:'Replacement sets',tbl:{head:["Symbol","Set","Elements"],rows:[["N","Natural numbers","1, 2, 3, …"],["W","Whole numbers","0, 1, 2, 3, …"],["Z","Integers","…, −2, −1, 0, 1, 2, …"],["Q","Rational numbers","p/q with q ≠ 0"],["R","Real numbers","All points on the number line"]]}}
+],tips:["Read the replacement set (N, W, Z, R) first. It decides the final answer.","Combine two inequations by taking the common part of both number lines."]},
+
+{id:'m-quad',t:'Quadratic Equations',f:[
+["Standard form","ax^{2} + bx + c = 0, a ≠ 0",""],
+["Quadratic formula","x = {{−b ± √⟨b^{2} − 4ac⟩||2a}}",""],
+["Discriminant","D = b^{2} − 4ac",""],
+{title:'Nature of roots',tbl:{head:["Condition","Roots"],rows:[["D > 0","Real and distinct (rational if D is a perfect square)"],["D = 0","Real and equal, x = −b/2a"],["D < 0","No real roots"]]}},
+["Equal roots","b^{2} = 4ac","Used to find the value of k"],
+["Real roots","b^{2} − 4ac ≥ 0",""],
+["Sum and product of roots","α + β = {{−b||a}} ; αβ = {{c||a}}","Cross-check"],
+["Equation from roots","x^{2} − (α + β)x + αβ = 0","Cross-check"],
+{title:'Word problem helpers',list:["Consecutive integers: x, x + 1 ; consecutive even or odd: x, x + 2.","Speed = Distance ÷ Time. Time = Distance ÷ Speed.","Boat or stream: downstream speed = u + v, upstream speed = u − v.","Right triangle sides: use a² + b² = c².","Area of rectangle = l × b ; perimeter = 2(l + b)."]}
+],tips:["Reject answers that make no sense (negative length, age or time).","After finding k from D = 0, substitute back to check the equation."]},
+
+{id:'m-ratio',t:'Ratio and Proportion',f:[
+["Proportion","a : b = c : d ⇒ ad = bc","a and d are extremes, b and c are means"],
+["Mean proportional","b = √⟨ac⟩","a : b = b : c"],
+["Third proportional","c = {{b^{2}||a}}","a : b = b : c"],
+["Fourth proportional","d = {{bc||a}}","a : b = c : d"],
+["Continued proportion","a : b = b : c ⇒ b^{2} = ac",""],
+["Invertendo","{{b||a}} = {{d||c}}",""],
+["Alternendo","{{a||c}} = {{b||d}}",""],
+["Componendo","{{a + b||b}} = {{c + d||d}}",""],
+["Dividendo","{{a − b||b}} = {{c − d||d}}",""],
+["Componendo and dividendo","{{a + b||a − b}} = {{c + d||c − d}}","Most used in board problems"],
+["Equal ratios","If {{a||b}} = {{c||d}} = {{e||f}} = k then a = bk, c = dk, e = fk","Substitute and cancel k"],
+["Sum of equal ratios","{{a + c + e||b + d + f}} = k",""]
+],tips:["For proofs, put a/b = c/d = k and write a = bk and c = dk, then simplify.","Use componendo-dividendo when numerator and denominator have the form (x + y) and (x − y)."]},
+
+{id:'m-factor',t:'Factor and Remainder Theorem',f:[
+["Remainder theorem","f(x) ÷ (x − a) ⇒ remainder = f(a)",""],
+["Divisor (ax + b)","remainder = f(−{{b||a}})",""],
+["Factor theorem","(x − a) is a factor of f(x) ⇔ f(a) = 0",""],
+["Factorising a cubic","Find a with f(a) = 0, divide by (x − a), then factorise the quotient","Try ±1, ±2, ±3 and so on"],
+["Square","(a ± b)^{2} = a^{2} ± 2ab + b^{2}",""],
+["Difference of squares","a^{2} − b^{2} = (a − b)(a + b)",""],
+["Cube of a sum","(a + b)^{3} = a^{3} + 3a^{2}b + 3ab^{2} + b^{3}",""],
+["Cube of a difference","(a − b)^{3} = a^{3} − 3a^{2}b + 3ab^{2} − b^{3}",""],
+["Sum of cubes","a^{3} + b^{3} = (a + b)(a^{2} − ab + b^{2})",""],
+["Difference of cubes","a^{3} − b^{3} = (a − b)(a^{2} + ab + b^{2})",""]
+],tips:["When two remainders are given, form two equations in the unknowns and solve them together.","Remainder 0 means the divisor is a factor."]},
+
+{id:'m-mat',t:'Matrices',f:[
+["Order","m × n means m rows and n columns",""],
+["Addition and subtraction","Possible only for the same order. Add or subtract corresponding elements",""],
+["Scalar multiplication","kA: multiply every element by k",""],
+["When A × B exists","A is m × n and B is n × p, so AB is m × p","Columns of A must equal rows of B"],
+["Product element","Element in row i, column j of AB = (row i of A) × (column j of B), added up","For 2 × 2: first row of A with first column of B gives ae + bg"],
+["Not commutative","AB ≠ BA in general",""],
+["Unit (identity) matrix","AI = IA = A","I has 1 on the leading diagonal and 0 elsewhere"],
+["Null (zero) matrix","A + O = A ; A × O = O",""],
+["Square of a matrix","A^{2} = A × A","A must be a square matrix"],
+["Equal matrices","Same order and equal corresponding elements","Equate elements to find x and y"]
+],tips:["Always check the order before multiplying.","Multiply ROW of the first by COLUMN of the second."]},
+
+{id:'m-ap',t:'Arithmetic Progression (A.P.)',f:[
+["nth term","T_{n} = a + (n − 1)d",""],
+["Common difference","d = T_{n} − T_{n−1}",""],
+["Sum of n terms","S_{n} = {{n||2}}[2a + (n − 1)d]",""],
+["Sum using last term","S_{n} = {{n||2}}(a + l) ; l = a + (n − 1)d",""],
+["Number of terms","n = {{l − a||d}} + 1",""],
+["Term from sums","T_{n} = S_{n} − S_{n−1}",""],
+["Arithmetic mean","AM of a and b = {{a + b||2}}","a, b, c in A.P. ⇔ 2b = a + c"],
+["Three terms in A.P.","a − d, a, a + d","Sum = 3a"],
+["Four terms in A.P.","a − 3d, a − d, a + d, a + 3d","Common difference 2d"],
+["Sum of first n natural numbers","1 + 2 + … + n = {{n(n + 1)||2}}",""],
+["Sum of first n odd numbers","1 + 3 + 5 + … = n^{2}","Cross-check"],
+["Sum of first n even numbers","2 + 4 + 6 + … = n(n + 1)","Cross-check"]
+],tips:["Check that the difference between consecutive terms is constant before using A.P. formulas.","S_n − S_(n−1) gives the nth term."]},
+
+{id:'m-gp',t:'Geometric Progression (G.P.)',f:[
+["nth term","T_{n} = ar^{n−1}",""],
+["Common ratio","r = {{T_{n}||T_{n−1}}}",""],
+["Sum of n terms (r > 1)","S_{n} = {{a(r^{n} − 1)||r − 1}}",""],
+["Sum of n terms (r < 1)","S_{n} = {{a(1 − r^{n})||1 − r}}",""],
+["If r = 1","S_{n} = na",""],
+["Geometric mean","If a, b, c are in G.P., b^{2} = ac and b = √⟨ac⟩",""],
+["Three terms in G.P.","{{a||r}}, a, ar","Product = a³"]
+],tips:["A.P. adds the same number each time. G.P. multiplies by the same number each time.","For three terms in G.P. use a/r, a, ar to cut down the algebra."]},
+
+{id:'m-coord',t:'Coordinate Geometry',f:[
+["Distance formula","d = √⟨(x_{2} − x_{1})^{2} + (y_{2} − y_{1})^{2}⟩",""],
+["Distance from origin","d = √⟨x^{2} + y^{2}⟩",""],
+["Mid-point","M = ({{x_{1} + x_{2}||2}}, {{y_{1} + y_{2}||2}})",""],
+["Section formula (internal)","P = ({{m_{1}x_{2} + m_{2}x_{1}||m_{1} + m_{2}}}, {{m_{1}y_{2} + m_{2}y_{1}||m_{1} + m_{2}}})","P divides AB in the ratio m₁ : m₂"],
+["Centroid of a triangle","G = ({{x_{1} + x_{2} + x_{3}||3}}, {{y_{1} + y_{2} + y_{3}||3}})",""],
+["Ratio cut by the axes","x-axis divides AB in ratio −y_{1} : y_{2} ; y-axis in ratio −x_{1} : x_{2}","Put y = 0 or x = 0 in the section formula"],
+["Slope of a line","m = {{y_{2} − y_{1}||x_{2} − x_{1}}} = tan θ","θ is the angle with the positive x-axis"],
+["Slope from ax + by + c = 0","m = −{{a||b}}",""],
+["Parallel lines","m_{1} = m_{2}",""],
+["Perpendicular lines","m_{1} × m_{2} = −1",""],
+["Collinear points","slope of AB = slope of BC","Or AB + BC = AC"],
+["Slope-intercept form","y = mx + c","c is the y-intercept"],
+["Point-slope form","y − y_{1} = m(x − x_{1})",""],
+["Two-point form","y − y_{1} = {{y_{2} − y_{1}||x_{2} − x_{1}}}(x − x_{1})",""],
+["Axes and parallels","x-axis: y = 0 ; y-axis: x = 0 ; parallel to x-axis: y = k ; parallel to y-axis: x = h",""],
+{title:'Reflection of (x, y)',tbl:{head:["In","Image"],rows:[["x-axis","(x, −y)"],["y-axis","(−x, y)"],["origin","(−x, −y)"],["line y = x","(y, x)"],["line y = −x","(−y, −x)"],["line x = a","(2a − x, y)"],["line y = b","(x, 2b − y)"]]}},
+{title:'Shape checks',list:["Parallelogram: diagonals bisect each other (same mid-point).","Rectangle: opposite sides equal and diagonals equal.","Rhombus: all four sides equal.","Square: all sides equal and diagonals equal.","Isosceles triangle: two equal sides. Right triangle: a² + b² = c²."]}
+],tips:["Perpendicular bisector: use the mid-point and the negative reciprocal slope.","A line parallel to the given line has the same slope, only the constant changes."]},
+
+{id:'m-sim',t:'Similarity',f:[
+["Basic proportionality theorem","If DE ∥ BC then {{AD||DB}} = {{AE||EC}}",""],
+["Similar triangles","{{AB||PQ}} = {{BC||QR}} = {{CA||RP}}","Criteria: AA, SAS, SSS"],
+["Ratio of areas","{{Area of △ABC||Area of △PQR}} = ({{AB||PQ}})^{2}","Ratio of areas = square of ratio of sides"],
+["Scale factor k","Length ratio = k ; Area ratio = k^{2} ; Volume ratio = k^{3}","Models, maps and enlargements"],
+["Representative fraction","RF = {{Map length||Actual length}}","Same units on both"],
+["Pythagoras","a^{2} + b^{2} = c^{2}",""],
+["Pythagorean triples","3-4-5, 5-12-13, 8-15-17, 7-24-25",""]
+],tips:["Write similar triangles with corresponding vertices in the same order.","Areas go with squares and volumes go with cubes."]},
+
+{id:'m-circle',t:'Circles',f:[
+{title:'Angle properties',list:["Angle at the centre = 2 × angle at the circumference on the same arc.","Angle in a semicircle = 90°.","Angles in the same segment are equal.","Cyclic quadrilateral: opposite angles add up to 180°. Exterior angle = interior opposite angle.","If opposite angles are supplementary, the quadrilateral is cyclic."]},
+{title:'Chord properties',list:["Perpendicular from the centre to a chord bisects the chord.","Equal chords are equidistant from the centre and subtend equal angles at it.","Line joining the centre to the mid-point of a chord is perpendicular to the chord."]},
+{title:'Tangent properties',list:["A tangent is perpendicular to the radius at the point of contact.","Two tangents from an external point are equal in length.","Alternate segment theorem: angle between tangent and chord = angle in the alternate segment.","Two circles touching externally: distance between centres = r₁ + r₂. Touching internally: r₁ − r₂."]},
+["Tangent and secant","PT^{2} = PA × PB","P outside the circle, T the point of contact"],
+["Intersecting chords","PA × PB = PC × PD","Works for chords meeting inside or when extended outside"]
+],tips:["Mark every known angle on the figure before choosing a theorem.","Always give the reason (theorem name) next to each step."]},
+
+{id:'m-loci',t:'Constructions and Loci',f:[
+{title:'Loci to remember',list:["Fixed distance from a point: a circle with that point as centre.","Equidistant from two points: the perpendicular bisector of the line joining them.","Equidistant from two intersecting lines: the bisectors of the angles between them.","Equidistant from two parallel lines: a parallel line midway between them.","At a fixed distance d from a line: two parallel lines, one on each side."]},
+{title:'Constructions',list:["Circumcircle: draw the perpendicular bisectors of two sides, their meeting point is the circumcentre.","Incircle: draw two angle bisectors, their meeting point is the incentre. Radius = perpendicular from it to a side.","Tangent from an external point: join to centre, bisect, draw a semicircle on it, join the point to where it meets the circle.","Use a sharp pencil, keep compass arcs visible, and write the final answer (length or angle) if asked."]}
+],tips:["Keep construction arcs on the page. They carry the marks.","Read whether the locus is 'inside', 'outside' or 'on' a figure before shading."]},
+
+{id:'m-trig',t:'Trigonometry',f:[
+["Basic ratios","sin θ = {{Perpendicular||Hypotenuse}} ; cos θ = {{Base||Hypotenuse}} ; tan θ = {{Perpendicular||Base}}",""],
+["Reciprocals","cosec θ = {{1||sin θ}} ; sec θ = {{1||cos θ}} ; cot θ = {{1||tan θ}}",""],
+["Quotients","tan θ = {{sin θ||cos θ}} ; cot θ = {{cos θ||sin θ}}",""],
+["Identity 1","sin^{2}θ + cos^{2}θ = 1","sin²θ = 1 − cos²θ, cos²θ = 1 − sin²θ"],
+["Identity 2","1 + tan^{2}θ = sec^{2}θ","sec²θ − tan²θ = 1"],
+["Identity 3","1 + cot^{2}θ = cosec^{2}θ","cosec²θ − cot²θ = 1"],
+{title:'Standard angles',tbl:{head:["θ","0°","30°","45°","60°","90°"],rows:[
+["sin θ","0","{{1||2}}","{{1||√⟨2⟩}}","{{√⟨3⟩||2}}","1"],
+["cos θ","1","{{√⟨3⟩||2}}","{{1||√⟨2⟩}}","{{1||2}}","0"],
+["tan θ","0","{{1||√⟨3⟩}}","1","√⟨3⟩","not defined"],
+["cosec θ","not defined","2","√⟨2⟩","{{2||√⟨3⟩}}","1"],
+["sec θ","1","{{2||√⟨3⟩}}","√⟨2⟩","2","not defined"],
+["cot θ","not defined","√⟨3⟩","1","{{1||√⟨3⟩}}","0"]]}},
+{title:'Complementary angles',tbl:{head:["Ratio of (90° − θ)","Equals"],rows:[["sin(90° − θ)","cos θ"],["cos(90° − θ)","sin θ"],["tan(90° − θ)","cot θ"],["cot(90° − θ)","tan θ"],["sec(90° − θ)","cosec θ"],["cosec(90° − θ)","sec θ"]]}},
+["Height and distance","tan θ = {{Height||Horizontal distance}}","Angle of elevation = angle of depression (alternate angles)"],
+["Two-angle problems","h = d tan θ_{1} = (d + x) tan θ_{2}","Form two equations and eliminate"],
+["Special triangles","30°-60°-90° sides 1 : √3 : 2 ; 45°-45°-90° sides 1 : 1 : √2",""]
+],tips:["For proofs, work on ONE side only, converting everything to sin and cos.","Draw the figure with the horizontal line first. Angles of elevation and depression are measured from the horizontal."]},
+
+{id:'m-stat',t:'Statistics',f:[
+["Class mark","x = {{Upper limit + Lower limit||2}}",""],
+["Mean (ungrouped)","x̄ = {{Σx||n}}",""],
+["Mean (direct)","x̄ = {{Σfx||Σf}}",""],
+["Mean (assumed mean)","x̄ = A + {{Σfd||Σf}} ; d = x − A",""],
+["Mean (step deviation)","x̄ = A + h × {{Σfu||Σf}} ; u = {{x − A||h}}","h = class size"],
+["Median (formula)","Median = l + {{n/2 − cf||f}} × h","l = lower limit of the median class, cf = cumulative frequency before it. Cross-check"],
+["Median (ogive)","Mark n/2 on the y-axis, go across to the ogive, then down to the x-axis","Plot cumulative frequency against the UPPER class limits"],
+["Quartiles (ogive)","Q_{1}: {{n||4}}th value ; Q_{3}: {{3n||4}}th value",""],
+["Interquartile range","IQR = Q_{3} − Q_{1}",""],
+["Semi-interquartile range","{{Q_{3} − Q_{1}||2}}",""],
+["Mode (histogram)","Tallest bar: join top corners diagonally with its neighbours, drop a perpendicular to the axis","Board method is graphical"],
+["Mode (formula)","Mode = l + {{f_{1} − f_{0}||2f_{1} − f_{0} − f_{2}}} × h","Cross-check"],
+["Histogram","Class intervals on x-axis, frequency on y-axis, bars touch","Make intervals continuous first"]
+],tips:["Ogive: use upper limits with cumulative frequency, and start the curve at the lower limit of the first class.","Check that Σf equals n before calculating."]},
+
+{id:'m-prob',t:'Probability',f:[
+["Probability of an event","P(E) = {{Number of favourable outcomes||Total number of outcomes}}",""],
+["Range","0 ≤ P(E) ≤ 1 ; sure event = 1 ; impossible event = 0",""],
+["Complement","P(not E) = 1 − P(E)",""],
+["Sum of all outcomes","ΣP = 1",""],
+["Number of outcomes for n coins","2^{n}","1 coin: 2, 2 coins: 4, 3 coins: 8"],
+["Experimental probability","P = {{Frequency of event||Total trials}}",""],
+{title:'Two dice (total 36 outcomes)',tbl:{head:["Sum","2","3","4","5","6","7","8","9","10","11","12"],rows:[["Ways","1","2","3","4","5","6","5","4","3","2","1"]]}},
+{title:'Playing cards (52)',tbl:{head:["Item","Number"],rows:[["Red cards / black cards","26 each"],["Each suit (♠ ♥ ♦ ♣)","13"],["Face cards (J, Q, K)","12"],["Kings, queens, jacks, aces","4 each"],["Number cards (2 to 10)","36"]]}}
+],tips:["List the sample space for two-dice or three-coin problems to avoid missing outcomes.","'At least one' is easiest as 1 − P(none)."]},
+
+{id:'m-mensur',t:'Mensuration (3D solids)',f:[
+{title:'Solids at a glance',tbl:{head:["Solid","Curved / lateral surface","Total surface","Volume"],rows:[
+["Cube (side a)","4a^{2}","6a^{2}","a^{3}"],
+["Cuboid (l, b, h)","2h(l + b)","2(lb + bh + hl)","lbh"],
+["Cylinder","2πrh","2πr(r + h)","πr^{2}h"],
+["Cone","πrl","πr(r + l)","{{1||3}}πr^{2}h"],
+["Sphere","—","4πr^{2}","{{4||3}}πr^{3}"],
+["Hemisphere","2πr^{2}","3πr^{2}","{{2||3}}πr^{3}"],
+["Hollow cylinder (R, r)","2πh(R + r)","2π(R + r)(R − r + h)","πh(R^{2} − r^{2})"],
+["Hollow sphere (R, r)","—","4π(R^{2} + r^{2})","{{4||3}}π(R^{3} − r^{3})"]]}},
+["Slant height of a cone","l = √⟨r^{2} + h^{2}⟩",""],
+["Cuboid diagonal","d = √⟨l^{2} + b^{2} + h^{2}⟩",""],
+["Recasting a solid","Volume melted = Volume of new solid(s) ; n = {{V of big solid||V of one small solid}}","No volume is lost unless stated"],
+["Flow of water","Volume = cross-section area × speed × time",""],
+["Combined solids","Volume = sum of volumes ; surface = sum of EXPOSED surfaces only","The joining face is not counted"],
+["Units","1 m^{3} = 1000 L = 10^{6} cm^{3} ; 1 cm^{3} = 1 mL",""],
+["Value of π","π = {{22||7}} unless 3.14 or a calculator value is given",""]
+],tips:["Convert all lengths to the same unit first. Radius = diameter ÷ 2.","For combined solids, mark which faces are hidden before adding areas."]},
+
+{id:'m-carry',t:'Class 9 carry-over (still tested)',f:[
+["Simple interest","SI = {{P × R × T||100}}",""],
+["Compound interest","A = P(1 + {{R||100}})^{n} ; CI = A − P",""],
+["Triangle area","{{1||2}} × base × height",""],
+["Rectangle / parallelogram","l × b ; base × height",""],
+["Trapezium","{{1||2}}(a + b)h",""],
+["Circle","Area = πr^{2} ; circumference = 2πr",""],
+["Speed","Speed = {{Distance||Time}}","km/h to m/s: multiply by 5/18"],
+["Percentage change","{{Change||Original}} × 100",""]
+],tips:["Rate and time must use the same period (yearly with years)."]}
+]};
+DATA.p={name:'Physics',ch:[
+{id:'p-units',t:'Units and Constants',f:[
+{title:'SI units to know',tbl:{head:["Quantity","SI unit"],rows:[["Force","newton (N)"],["Work, energy, heat","joule (J)"],["Power","watt (W)"],["Moment of force, couple","N m"],["Electric charge","coulomb (C)"],["Current","ampere (A)"],["Potential difference","volt (V)"],["Resistance","ohm (Ω)"],["Resistivity","Ω m"],["Specific heat capacity","J kg^{−1} K^{−1}"],["Specific latent heat","J kg^{−1}"],["Frequency","hertz (Hz)"],["Power of a lens","dioptre (D)"]]}},
+["Constants","g = 9.8 m/s² (10 if told) ; c = 3 × 10^{8} m/s ; speed of sound in air ≈ 330–344 m/s",""],
+["Conversions","1 kgf = 9.8 N ; 1 HP = 746 W ; 1 kWh = 3.6 × 10^{6} J ; 1 cal = 4.2 J ; 1 eV = 1.6 × 10^{−19} J",""],
+["Motion (Class 9)","v = u + at ; s = ut + {{1||2}}at^{2} ; v^{2} = u^{2} + 2as ; F = ma ; p = mv","Used in force and energy numericals"],
+["Weight","W = mg",""]
+],tips:["Convert units first: g to kg, cm to m, minutes to seconds.","Write the unit with every answer."]},
+
+{id:'p-force',t:'Force: Moments, Couples and Circular Motion',f:[
+["Moment of force","Moment = Force × perpendicular distance from the pivot","Unit N m. Anticlockwise is taken as positive"],
+["Couple","Moment of couple = Force × perpendicular distance between the two forces","Two equal and opposite forces; produces rotation only"],
+["Principle of moments","Sum of clockwise moments = Sum of anticlockwise moments","Condition for rotational equilibrium"],
+["Equilibrium","ΣF = 0 and Σ moments = 0",""],
+["Centripetal force","F = {{mv^{2}||r}}","Acts towards the centre; does no work"],
+["Centre of gravity","The point where the whole weight appears to act","Regular body: geometric centre. Lower CG and wider base give more stability"],
+["Force units","1 kgf = 9.8 N",""]
+],tips:["Use the PERPENDICULAR distance from the pivot, not the slant distance.","Choose the pivot at an unknown force so its moment is zero."]},
+
+{id:'p-work',t:'Work, Energy and Power',f:[
+["Work","W = F × s ; W = F s cos θ","Work is zero if displacement is zero or force ⟂ displacement"],
+["Kinetic energy","KE = {{1||2}}mv^{2}",""],
+["Potential energy","PE = mgh",""],
+["Work-energy theorem","W = ΔKE = {{1||2}}m(v^{2} − u^{2})",""],
+["Conservation of energy","KE + PE = constant (no friction)",""],
+["Free fall","v = √⟨2gh⟩",""],
+["KE and momentum","KE = {{p^{2}||2m}}",""],
+["Power","P = {{W||t}} = F × v",""],
+["Efficiency","η = {{Useful output||Total input}} × 100 %",""],
+["Units","1 J = 1 N m ; 1 W = 1 J/s ; 1 HP = 746 W ; 1 kWh = 3.6 × 10^{6} J",""]
+],tips:["Doubling the speed makes KE four times larger.","Work done by gravity on a body moving horizontally is zero."]},
+
+{id:'p-mach',t:'Machines',f:[
+["Mechanical advantage","MA = {{Load||Effort}}",""],
+["Velocity ratio","VR = {{Distance moved by effort||Distance moved by load}}",""],
+["Efficiency","η = {{MA||VR}} × 100 = {{Work output||Work input}} × 100","Always less than 100 % because of friction"],
+["Ideal machine","MA = VR and η = 100 %",""],
+["Lever principle","Effort × Effort arm = Load × Load arm","MA = {{Effort arm||Load arm}}"],
+{title:'Classes of lever',tbl:{head:["Class","Fulcrum / load / effort","Examples"],rows:[["I","Fulcrum between load and effort","Scissors, seesaw, crowbar"],["II","Load between fulcrum and effort","Wheelbarrow, nutcracker"],["III","Effort between fulcrum and load","Tongs, forearm, fishing rod"]]}},
+["Single fixed pulley","MA = 1, VR = 1","Only changes the direction of the force"],
+["Single movable pulley","MA = 2, VR = 2 (ideal)",""],
+["Block and tackle","VR = number of tension-bearing strands",""],
+["Inclined plane","VR = {{Length of plane||Height}} = {{1||sin θ}}",""]
+],tips:["MA and VR have no unit. Efficiency is in per cent.","Count only the strands that pull on the movable block when finding VR."]},
+
+{id:'p-refr',t:'Refraction of Light (Plane Surfaces and Prism)',f:[
+["Snell's law","n = {{sin i||sin r}}","Angles are measured from the normal"],
+["Refractive index and speed","n = {{c||v}} = {{Speed in vacuum||Speed in medium}}",""],
+["Relative refractive index","n_{12} = {{n_{2}||n_{1}}} = {{v_{1}||v_{2}}}",""],
+["Real and apparent depth","n = {{Real depth||Apparent depth}}","Object seen from air looks raised"],
+["Apparent shift","Shift = Real depth − Apparent depth = d(1 − {{1||n}})",""],
+["Critical angle","sin C = {{1||n}}","n of the denser medium with respect to the rarer"],
+["Total internal reflection","Needs: ray goes denser → rarer AND angle of incidence > C","Used in prisms, optical fibres, mirage, diamond sparkle"],
+["Typical values","n(water) ≈ 1.33 ; n(glass) ≈ 1.5 ; n(diamond) ≈ 2.4",""],
+["Bending rule","Rarer → denser: bends towards the normal. Denser → rarer: bends away",""],
+["Prism deviation","δ = i_{1} + i_{2} − A ; r_{1} + r_{2} = A","Cross-check"]
+],tips:["n has no unit.","For TIR, both conditions must hold. Mention both in the answer."]},
+
+{id:'p-lens',t:'Refraction through Lenses',f:[
+["Power of a lens","P = {{1||f (in metres)}}","Dioptre (D). Convex is +, concave is −"],
+["Lenses in contact","P = P_{1} + P_{2}","Cross-check"],
+["Magnification","m = {{Height of image||Height of object}} = {{v||u}}","m > 1 enlarged, m < 1 diminished"],
+["Lens formula","{{1||v}} − {{1||u}} = {{1||f}}","Cross-check. New Cartesian sign convention: u is negative, f positive for convex"],
+{title:'Image formed by a convex lens',tbl:{head:["Object position","Image position","Nature and size"],rows:[
+["At infinity","At F₂","Real, inverted, point-sized"],
+["Beyond 2F₁","Between F₂ and 2F₂","Real, inverted, diminished"],
+["At 2F₁","At 2F₂","Real, inverted, same size"],
+["Between F₁ and 2F₁","Beyond 2F₂","Real, inverted, enlarged"],
+["At F₁","At infinity","Real, inverted, highly enlarged"],
+["Between F₁ and lens","Same side as object","Virtual, erect, enlarged"]]}},
+["Concave lens","Always virtual, erect and diminished, between O and F₁","Used to correct short-sight"],
+{title:'Rules for ray diagrams',list:["Ray parallel to the principal axis passes through the focus.","Ray through the optical centre goes straight.","Ray through the first focus emerges parallel to the axis."]},
+["Uses","Convex: magnifying glass, camera, projector, long-sight correction ; Concave: short-sight correction",""]
+],tips:["Draw arrows on rays and label F, 2F and O clearly.","Use f in metres when finding power."]},
+
+{id:'p-spec',t:'Spectrum and Electromagnetic Waves',f:[
+["Wave equation","c = fλ","c = 3 × 10^{8} m/s for all EM waves in vacuum"],
+["EM spectrum","Radio → Microwave → Infrared → Visible → Ultraviolet → X-rays → Gamma","Frequency and energy increase, wavelength decreases"],
+["Visible colours","VIBGYOR: violet is deviated most, red least","Red has the longest wavelength and is the fastest in glass"],
+["Dispersion","White light splits into 7 colours in a prism because each colour has a different refractive index",""],
+["Scattering","Blue scatters most (blue sky), red least (red sunset, danger signals)",""],
+{title:'Uses of EM waves',tbl:{head:["Wave","Uses"],rows:[["Radio","Broadcasting, communication"],["Microwave","Radar, microwave oven, satellite links"],["Infrared","Remote controls, night vision, heating"],["Ultraviolet","Sterilising, detecting forged notes"],["X-rays","Medical imaging, airport security"],["Gamma rays","Cancer treatment, sterilising equipment"]]}}
+],tips:["Memorise the order of the spectrum and one use for each.","Same speed in vacuum does not mean same wavelength."]},
+
+{id:'p-sound',t:'Sound',f:[
+["Wave equation","v = fλ",""],
+["Frequency and time period","f = {{1||T}}",""],
+["Echo","2d = v × t ⇒ d = {{vt||2}}","Sound travels to the obstacle and back"],
+["Echo condition","Echo is heard if the reflector is at least about 17 m away","Sound persists in the ear for 0.1 s"],
+["SONAR","Depth = {{v t||2}}","t is the time for the round trip. Uses ultrasonic waves"],
+["Audible range","20 Hz to 20 kHz ; infrasonic < 20 Hz ; ultrasonic > 20 kHz",""],
+["Speed of sound","≈ 330 m/s at 0 °C ; ≈ 344 m/s at about 20 °C ; solids > liquids > gases","Rises with temperature and humidity"],
+["Resonance (closed air column)","l_{1} + e = {{λ||4}} ; l_{2} + e = {{3λ||4}} ; v = 2f(l_{2} − l_{1})","e = end correction"],
+["Loudness and pitch","Loudness depends on amplitude. Pitch depends on frequency. Quality depends on waveform",""],
+["Natural vibration","Depends on size, shape and material","Free, damped and forced vibrations; resonance is a forced vibration at the natural frequency"]
+],tips:["For echoes, the total path is 2d. Divide by 2 at the end.","Sound needs a medium. It cannot travel in a vacuum."]},
+
+{id:'p-curr',t:'Current Electricity',f:[
+["Current","I = {{Q||t}}","1 A = 1 C/s"],
+["Potential difference","V = {{W||Q}}","1 V = 1 J/C"],
+["Ohm's law","V = IR","Constant temperature"],
+["Resistance of a wire","R = ρ{{l||A}}","ρ is resistivity. R rises with length, falls with area"],
+["Resistors in series","R_{s} = R_{1} + R_{2} + R_{3}","Same current, voltages add"],
+["Resistors in parallel","{{1||R_{p}}} = {{1||R_{1}}} + {{1||R_{2}}} + {{1||R_{3}}}","Same voltage, currents add"],
+["Two resistors in parallel","R_{p} = {{R_{1}R_{2}||R_{1} + R_{2}}}",""],
+["n equal resistors R","Series: nR ; parallel: {{R||n}}",""],
+["EMF and internal resistance","E = V + Ir ; E = I(R + r) ; r = {{E − V||I}}",""],
+["Electrical power","P = VI = I^{2}R = {{V^{2}||R}}",""],
+["Electrical energy","E = Pt = VIt","SI unit: joule. Commercial unit: kWh"],
+["Commercial unit","1 kWh = 1 unit = 3.6 × 10^{6} J",""],
+["Cost of electricity","Cost = Units × Rate per unit ; Units = {{Watts × hours||1000}}",""],
+["Heating effect","H = I^{2}Rt = {{V^{2}t||R}}",""]
+],tips:["Check that V, I, R and time are all in SI units before substituting.","Series: same current. Parallel: same voltage."]},
+
+{id:'p-house',t:'Household Circuits',f:[
+["Current drawn","I = {{P||V}}",""],
+["Choosing a fuse","Fuse rating must be just above the normal current","Common ratings: 5 A, 10 A, 15 A"],
+["Wire colours","Live: red (new: brown) ; Neutral: black (new: blue) ; Earth: green (new: green/yellow)",""],
+["Fuse wire","Thin wire of high resistance and low melting point (tin-lead alloy)","Placed in the LIVE wire"],
+["Switch and fuse","Always fitted in the live wire",""],
+["Earthing","Earth wire joins the metal body to the ground and prevents shock",""],
+["Protection devices","MCB trips on overload or short circuit ; ELCB trips on leakage current",""],
+["Appliances at home","Connected in parallel across the 220–240 V supply",""]
+],tips:["Fuse and switch go on the live wire, never the neutral.","Short circuit: live and neutral touch. Overload: too many appliances."]},
+
+{id:'p-em',t:'Electromagnetism',f:[
+["Fleming's left-hand rule (motor)","Forefinger = field, middle finger = current, thumb = force","Force on a current-carrying conductor"],
+["Fleming's right-hand rule (generator)","Forefinger = field, middle finger = induced current, thumb = motion",""],
+["Electromagnetic induction","Induced EMF depends on the rate of change of magnetic flux","Lenz's law: induced current opposes the change"],
+["Transformer","{{V_{s}||V_{p}}} = {{N_{s}||N_{p}}} = {{I_{p}||I_{s}}}","Ideal: V_pI_p = V_sI_s"],
+["Step-up and step-down","Step-up: N_{s} > N_{p}, V_{s} > V_{p}, I_{s} < I_{p} ; step-down is the reverse",""],
+["Transformer efficiency","η = {{V_{s}I_{s}||V_{p}I_{p}}} × 100 %",""],
+["AC and DC generators","AC: slip rings and brushes. DC: split-ring commutator",""],
+["Electric motor","Current-carrying coil in a magnetic field rotates. Split-ring commutator reverses current every half turn",""],
+["Straight conductor","Right-hand thumb rule: thumb = current, curled fingers = field",""],
+["Solenoid","Field is like a bar magnet. Stronger with more turns, more current and a soft iron core",""]
+],tips:["Transformers work only on AC.","In a transformer, if voltage goes up, current goes down."]},
+
+{id:'p-heat',t:'Calorimetry',f:[
+["Heat transfer","Q = mcΔT","c = specific heat capacity"],
+["Heat capacity","C = mc = {{Q||ΔT}}","J K^{−1}"],
+["Principle of calorimetry","Heat lost by hot body = Heat gained by cold body","m_{1}c_{1}(T_{1} − T) = m_{2}c_{2}(T − T_{2})"],
+["Latent heat","Q = mL","Temperature stays constant during a change of state"],
+["Latent heat values","Ice: 336 J/g (80 cal/g) ; steam: 2260 J/g (540 cal/g)",""],
+["Water","c = 4.2 J g^{−1} °C^{−1} = 4200 J kg^{−1} K^{−1} = 1 cal g^{−1} °C^{−1}",""],
+["Ice at 0 °C to water at T","Q = mL_{f} + mc(T − 0)",""],
+["Steam at 100 °C to water at T","Q = mL_{v} + mc(100 − T)",""],
+["Electric heater","Pt = mcΔT","Assuming no heat loss"],
+["Temperature","K = °C + 273",""]
+],tips:["Use consistent units: J with g and °C, or J with kg and K.","While ice melts, the temperature stays at 0 °C."]},
+
+{id:'p-radio',t:'Radioactivity and Nuclear Energy',f:[
+["Nuclear numbers","A = Z + N","A = mass number, Z = protons, N = neutrons"],
+["Alpha decay","A decreases by 4 ; Z decreases by 2",""],
+["Beta decay","A unchanged ; Z increases by 1","A neutron changes into a proton and an electron"],
+["Gamma emission","No change in A or Z",""],
+{title:'Properties of radiations',tbl:{head:["Property","Alpha (α)","Beta (β)","Gamma (γ)"],rows:[["Nature","Helium nucleus","Electron","EM wave"],["Charge","+2","−1","0"],["Ionising power","Highest","Medium","Lowest"],["Penetration","Lowest (paper stops it)","Medium (few mm of aluminium)","Highest (thick lead)"],["In electric field","Towards negative plate","Towards positive plate","Not deflected"]]}},
+["Mass-energy relation","E = mc^{2}",""],
+["Half-life","N = N_{0}({{1||2}})^{t/T}","Cross-check. Fraction left after n half-lives = ({{1||2}})^{n}"],
+["Nuclear fission","Heavy nucleus splits after absorbing a neutron, releasing energy and more neutrons (chain reaction)","Used in reactors; uncontrolled in bombs"],
+["Nuclear fusion","Light nuclei join to form a heavier nucleus with large energy release","Needs very high temperature; the Sun's energy source"],
+["Uses and safety","Uses: cancer treatment, tracers, carbon dating, sterilising. Handle with lead shields and tongs; GM tube detects radiation",""]
+],tips:["Alpha decay: mass down 4, atomic number down 2.","Gamma rays are not deflected because they carry no charge."]}
+]};
+DATA.c={name:'Chemistry',ch:[
+{id:'c-ions',t:'Valency and Common Ions (toolkit)',f:[
+{title:'Common ions',tbl:{head:["Charge","Cations","Anions"],rows:[
+["1","H^{+}, Na^{+}, K^{+}, Ag^{+}, NH_4^{+}","Cl^{−}, Br^{−}, NO_3^{−}, OH^{−}, HCO_3^{−}, HSO_4^{−}"],
+["2","Mg^{2+}, Ca^{2+}, Zn^{2+}, Cu^{2+}, Fe^{2+}, Pb^{2+}","O^{2−}, S^{2−}, SO_4^{2−}, SO_3^{2−}, CO_3^{2−}"],
+["3","Al^{3+}, Fe^{3+}","PO_4^{3−}"]]}},
+["Writing a formula","Criss-cross the charges (valencies) and reduce to the simplest ratio","Al^{3+} and SO_4^{2−} give Al_2(SO_4)_3"],
+["Valency","Valency = valence electrons (if ≤ 4) or 8 − valence electrons (if > 4)",""],
+["Balancing","The same number of each kind of atom on both sides, then add state symbols if asked",""]
+],tips:["Brackets are needed when a group occurs more than once, like Ca(OH)_2."]},
+
+{id:'c-period',t:'Periodic Properties',f:[
+["Modern periodic law","Properties of elements are a periodic function of their atomic numbers",""],
+["Layout","18 groups and 7 periods. Period number = number of shells",""],
+["Ionisation energy","X + energy → X^{+} + e^{−}","Energy needed to remove the outermost electron"],
+["Electron affinity","X + e^{−} → X^{−} + energy","Energy released when an electron is added"],
+{title:'Trends',tbl:{head:["Property","Across a period (left to right)","Down a group"],rows:[
+["Atomic size","Decreases","Increases"],
+["Ionisation energy","Increases","Decreases"],
+["Electron affinity","Increases (generally)","Decreases (generally)"],
+["Electronegativity","Increases","Decreases"],
+["Metallic character","Decreases","Increases"],
+["Non-metallic character","Increases","Decreases"],
+["Oxides","Basic → amphoteric → acidic","More basic"]]}}
+],tips:["Across a period the nuclear charge rises while the shells stay the same, so the size shrinks.","Down a group a new shell is added, so the size grows."]},
+
+{id:'c-bond',t:'Chemical Bonding',f:[
+["Electrovalent (ionic) bond","Metal loses electrons to form a cation, non-metal gains them to form an anion. Ions attract","NaCl: Na → Na^{+} + e^{−} ; Cl + e^{−} → Cl^{−}"],
+["Covalent bond","Sharing of electron pairs: single (H_2, Cl_2), double (O_2, C_2H_4), triple (N_2, C_2H_2)",""],
+["Coordinate bond","One atom donates a lone pair to an atom that needs electrons","NH_4^{+}, H_3O^{+}"],
+["Octet rule","Atoms try to have 8 electrons in the outer shell (2 for H and He)",""],
+{title:'Ionic versus covalent compounds',tbl:{head:["Property","Ionic","Covalent"],rows:[
+["Melting and boiling points","High","Low"],
+["Electrical conduction","Conducts when molten or dissolved","Poor (exceptions: graphite, HCl in water)"],
+["Solubility","Soluble in water, insoluble in organic solvents","Usually insoluble in water, soluble in organic solvents"],
+["State","Crystalline solids","Gases, liquids or soft solids"],
+["Reaction speed","Fast","Slow"]]}}
+],tips:["In a lone-pair diagram, show only the outer electrons.","H_2O has 2 lone pairs, NH_3 has 1, CH_4 has none."]},
+
+{id:'c-abs',t:'Acids, Bases and Salts',f:[
+{title:'Indicators',tbl:{head:["Indicator","Acid","Neutral","Alkali"],rows:[["Litmus","Red","Purple","Blue"],["Methyl orange","Pink / red","Orange","Yellow"],["Phenolphthalein","Colourless","Colourless","Pink"],["Turmeric","Yellow","Yellow","Red-brown"]]}},
+["pH scale","pH < 7 acidic ; pH = 7 neutral ; pH > 7 alkaline","Lower pH means a stronger acid. Cross-check. pH = −log[H^{+}]"],
+["Acid + metal","Zn + H_2SO_4 → ZnSO_4 + H_2","Metals above hydrogen"],
+["Acid + base","NaOH + HCl → NaCl + H_2O","Neutralisation"],
+["Acid + metal oxide","CuO + H_2SO_4 → CuSO_4 + H_2O",""],
+["Acid + carbonate","CaCO_3 + 2HCl → CaCl_2 + H_2O + CO_2",""],
+["Acid + bicarbonate","NaHCO_3 + HCl → NaCl + H_2O + CO_2",""],
+["Acid + sulphite","Na_2SO_3 + 2HCl → 2NaCl + H_2O + SO_2",""],
+["Acid + sulphide","FeS + H_2SO_4 → FeSO_4 + H_2S",""],
+["Alkali + ammonium salt","2NH_4Cl + Ca(OH)_2 → CaCl_2 + 2H_2O + 2NH_3",""],
+["Amphoteric oxide","ZnO + 2NaOH → Na_2ZnO_2 + H_2O ; ZnO + H_2SO_4 → ZnSO_4 + H_2O","Al_2O_3, ZnO and PbO react with both acids and alkalis"],
+["Alkali + metal","Zn + 2NaOH → Na_2ZnO_2 + H_2","Same for Al and Pb"],
+{title:'Preparing salts',tbl:{head:["Method","Used for","Example"],rows:[
+["Direct combination","Chlorides and sulphides of metals","2Fe + 3Cl_2 → 2FeCl_3"],
+["Displacement","Salts of metals above hydrogen","Fe + H_2SO_4 → FeSO_4 + H_2"],
+["Neutralisation or titration","Soluble salts of Na, K, NH_4^{+}","NaOH + HCl → NaCl + H_2O"],
+["Acid on insoluble base","Soluble salts of Cu, Zn","CuO + H_2SO_4 → CuSO_4 + H_2O"],
+["Double decomposition (precipitation)","Insoluble salts","Pb(NO_3)_2 + 2NaCl → PbCl_2 + 2NaNO_3"]]}},
+{title:'Strength and types',list:["Strong acids: HCl, H_2SO_4, HNO_3. Weak acids: CH_3COOH, H_2CO_3. Strong alkalis: NaOH, KOH. Weak alkali: NH_4OH.","Basicity of an acid: HCl is monobasic, H_2SO_4 dibasic, H_3PO_4 tribasic.","Normal salt: NaCl. Acid salt: NaHSO_4, NaHCO_3. Basic salt: Pb(OH)Cl.","Deliquescent (absorb water and dissolve): CaCl_2, NaOH, FeCl_3. Hygroscopic (absorb water): conc. H_2SO_4, CaO, P_2O_5. Efflorescent (lose water of crystallisation): Na_2CO_3·10H_2O."]},
+["Heating hydrated salt","CuSO_4·5H_2O → CuSO_4 + 5H_2O","Blue → white. Adding water restores blue"]
+],tips:["Insoluble salts are made by precipitation. Soluble salts by neutralisation or displacement.","Metals above hydrogen in the reactivity series displace hydrogen from dilute acids."]},
+
+{id:'c-anal',t:'Analytical Chemistry',f:[
+{title:'Action of NaOH and NH_4OH on metal ion solutions',tbl:{head:["Cation","With NaOH","With NH_4OH"],rows:[
+["Ca^{2+}","White precipitate, insoluble in excess","No precipitate or very slight white"],
+["Zn^{2+}","White precipitate, soluble in excess","White precipitate, soluble in excess"],
+["Pb^{2+}","White precipitate, soluble in excess","White precipitate, insoluble in excess"],
+["Fe^{2+}","Dirty green precipitate, insoluble","Dirty green precipitate, insoluble"],
+["Fe^{3+}","Reddish-brown precipitate, insoluble","Reddish-brown precipitate, insoluble"],
+["Cu^{2+}","Pale blue precipitate, insoluble","Pale blue precipitate, soluble in excess giving an inky blue solution"],
+["Al^{3+} (some books)","White precipitate, soluble in excess","White precipitate, insoluble in excess"]]}},
+{title:'Tests for gases',tbl:{head:["Gas","Test and observation"],rows:[
+["NH_3","Pungent smell. Turns moist red litmus blue. Dense white fumes with HCl"],
+["HCl","Turns moist blue litmus red. White fumes with NH_3. White curdy precipitate with AgNO_3"],
+["Cl_2","Greenish-yellow gas. Bleaches moist blue litmus"],
+["SO_2","Choking smell. Turns acidified K_2Cr_2O_7 paper from orange to green"],
+["H_2S","Rotten-egg smell. Lead acetate paper turns black"],
+["CO_2","Turns lime water milky"],
+["NO_2","Reddish-brown gas"],
+["H_2","Burns with a pop sound"],
+["O_2","Relights a glowing splint"]]}},
+{title:'Tests for anions',tbl:{head:["Anion","Test and observation"],rows:[
+["Cl^{−}","AgNO_3 solution: white curdy precipitate, soluble in NH_4OH"],
+["SO_4^{2−}","BaCl_2 solution: white precipitate insoluble in dilute HCl"],
+["CO_3^{2−}","Dilute HCl: CO_2 turns lime water milky"],
+["SO_3^{2−}","Dilute HCl: SO_2 turns acidified K_2Cr_2O_7 green"],
+["S^{2−}","Dilute acid: H_2S blackens lead acetate paper"],
+["NO_3^{−}","Brown ring test: add FeSO_4, then conc. H_2SO_4 slowly down the side"]]}},
+["Heating metal nitrates","2Cu(NO_3)_2 → 2CuO + 4NO_2 + O_2 ; 2Pb(NO_3)_2 → 2PbO + 4NO_2 + O_2 ; 2NaNO_3 → 2NaNO_2 + O_2","Nitrates of Na and K give nitrite and oxygen only"],
+["Heating carbonates","CuCO_3 → CuO + CO_2 ; ZnCO_3 → ZnO + CO_2 ; PbCO_3 → PbO + CO_2","CuO black, ZnO yellow when hot, PbO yellow"]
+],tips:["Say 'precipitate' and its colour, then state whether it dissolves in excess.","NaOH and NH_4OH differ for Ca^{2+}, Pb^{2+} and Cu^{2+}. Learn these three carefully."]},
+
+{id:'c-mole',t:'Mole Concept and Stoichiometry',f:[
+["Mole","1 mole = 6.022 × 10^{23} particles (Avogadro number)",""],
+["Moles from mass","n = {{Mass in g||Molar mass}}",""],
+["Moles from particles","n = {{Number of particles||6.022 × 10^{23}}}",""],
+["Moles of a gas at STP","n = {{Volume in L||22.4}}","1 mole of any gas = 22.4 L at STP"],
+["Mass from volume","Mass = {{V at STP||22.4}} × Molar mass",""],
+["Vapour density","V.D. = {{Molar mass||2}} ; M = 2 × V.D.",""],
+["Number of atoms","Atoms = n × atomicity × 6.022 × 10^{23}","Atomicity: He 1, H_2 2, O_3 3, P_4 4, S_8 8"],
+["Percentage composition","% of element = {{Mass of element in 1 mole||Molar mass of compound}} × 100",""],
+["Percentage purity","{{Mass of pure substance||Mass of sample}} × 100",""],
+["Empirical formula","% → ÷ atomic mass → ÷ smallest value → whole-number ratio",""],
+["Molecular formula","Molecular formula = (Empirical formula)_{n} ; n = {{Molecular mass||Empirical formula mass}}",""],
+["Gay-Lussac's law","Gases combine in simple whole-number volume ratios at the same T and P","2H_2 + O_2 → 2H_2O is 2 : 1 : 2 by volume"],
+["Avogadro's law","Equal volumes of all gases at the same T and P contain equal numbers of molecules",""],
+["Boyle's law","P_{1}V_{1} = P_{2}V_{2} at constant T",""],
+["Charles' law","{{V_{1}||T_{1}}} = {{V_{2}||T_{2}}} at constant P","T in kelvin"],
+["Combined gas law","{{P_{1}V_{1}||T_{1}}} = {{P_{2}V_{2}||T_{2}}}",""],
+["STP","0 °C = 273 K and 760 mm Hg (1 atm)","K = °C + 273"],
+["Stoichiometry","Coefficients in a balanced equation give the mole ratio, and for gases the volume ratio","Convert grams to moles, use the ratio, convert back"],
+{title:'Atomic masses (use values given in the paper)',tbl:{head:["Element","Mass","Element","Mass"],rows:[["H","1","Mg","24"],["C","12","Al","27"],["N","14","S","32"],["O","16","Cl","35.5"],["Na","23","K","39"],["Ca","40","Fe","56"],["Cu","64 (63.5)","Zn","65"],["Ag","108","Pb","207"]]}}
+],tips:["Write the balanced equation first, then the mole ratio, then the calculation.","Temperature must be in kelvin for gas-law problems."]},
+
+{id:'c-elec',t:'Electrolysis',f:[
+["Key terms","Electrolyte conducts as ions. Cathode (−): cations are reduced. Anode (+): anions are oxidised","Reduction is gain of electrons, oxidation is loss"],
+["Cathode reaction","M^{n+} + ne^{−} → M","For example, Cu^{2+} + 2e^{−} → Cu"],
+["Anode reaction","4OH^{−} → 2H_2O + O_2 + 4e^{−} ; 2Cl^{−} → Cl_2 + 2e^{−}",""],
+["Selective discharge","Cathode: Ag^{+} > Cu^{2+} > H^{+} > Pb^{2+} > Zn^{2+}. Anode: Cl^{−} (conc.) > OH^{−} > SO_4^{2−}, NO_3^{−}","Ion lower in the series (less reactive metal) is discharged first"],
+{title:'Common electrolysis cases',tbl:{head:["Electrolyte and electrodes","Cathode","Anode"],rows:[
+["Molten PbBr_2 (inert electrodes)","Pb","Br_2"],
+["Acidified water (Pt)","H_2 (2 vol)","O_2 (1 vol)"],
+["Dilute CuSO_4 (Pt or C)","Cu deposited","O_2"],
+["CuSO_4 (Cu electrodes)","Cu deposited","Anode dissolves, Cu → Cu^{2+} + 2e^{−}"],
+["Conc. NaCl (brine)","H_2","Cl_2"],
+["AgNO_3 (Ag electrodes)","Ag deposited","Anode dissolves"]]}},
+["Electroplating","Object to be plated = cathode ; plating metal = anode ; electrolyte = salt of the plating metal","Silver plating: Ag(CN)_2^{−}"],
+["Refining of copper","Impure Cu anode, pure Cu cathode, CuSO_4 electrolyte",""],
+{title:'Types of substances',list:["Strong electrolytes: ionise fully (HCl, H_2SO_4, NaOH, NaCl).","Weak electrolytes: ionise partly (CH_3COOH, NH_4OH, H_2CO_3).","Non-electrolytes: no ions (sugar, alcohol, glucose, urea)."]}
+],tips:["Anode: oxidation. Cathode: reduction (OIL RIG).","In acidified water the volume ratio of H_2 to O_2 is 2 : 1."]},
+
+{id:'c-metal',t:'Metallurgy',f:[
+["Reactivity series","K > Na > Ca > Mg > Al > Zn > Fe > Pb > H > Cu > Hg > Ag > Au","Decides the method of extraction"],
+["Methods of extraction","Top of series: electrolysis of molten ore. Middle: reduction with C or CO. Bottom: heating or found native",""],
+["Calcination","Heating the ore in limited or no air: ZnCO_3 → ZnO + CO_2",""],
+["Roasting","Heating the ore in excess air: 2ZnS + 3O_2 → 2ZnO + 2SO_2",""],
+["Reduction with carbon","ZnO + C → Zn + CO ; Fe_2O_3 + 3CO → 2Fe + 3CO_2",""],
+["Ore of aluminium","Bauxite, Al_2O_3·2H_2O",""],
+["Purification (Baeyer)","Al_2O_3·2H_2O + 2NaOH → 2NaAlO_2 + 3H_2O ; then NaAlO_2 + 2H_2O → Al(OH)_3 + NaOH ; 2Al(OH)_3 → Al_2O_3 + 3H_2O",""],
+["Electrolytic reduction of alumina","Alumina dissolved in molten cryolite (Na_3AlF_6) with CaF_2 at about 950 °C","Cathode: Al^{3+} + 3e^{−} → Al. Anode: 2O^{2−} → O_2 + 4e^{−}"],
+["Why cryolite","Lowers melting point and increases conductivity",""],
+["Anode wear","Carbon anodes burn in the oxygen: C + O_2 → CO_2, so they are replaced regularly",""],
+{title:'Alloys',tbl:{head:["Alloy","Composition","Use"],rows:[["Brass","Cu + Zn","Utensils, instruments"],["Bronze","Cu + Sn","Statues, medals, bells"],["Duralumin","Al + Cu + Mg + Mn","Aircraft parts"],["Solder","Pb + Sn","Joining wires"],["Stainless steel","Fe + Cr + Ni + C","Cutlery, surgical tools"]]}}
+],tips:["Sulphide ores are roasted. Carbonate ores are calcined.","Learn the electrode reactions for aluminium extraction."]},
+
+{id:'c-comp',t:'Study of Compounds',f:[
+["HCl: laboratory preparation","NaCl + H_2SO_4 (conc.) → NaHSO_4 + HCl","Below 200 °C. Dry with conc. H_2SO_4; collect by upward delivery"],
+["HCl: above 200 °C","NaHSO_4 + NaCl → Na_2SO_4 + HCl",""],
+["HCl properties","HCl + NH_3 → NH_4Cl (white fumes) ; HCl + AgNO_3 → AgCl + HNO_3","Very soluble: fountain experiment"],
+["NH_3: laboratory preparation","2NH_4Cl + Ca(OH)_2 → CaCl_2 + 2H_2O + 2NH_3","Dry with quicklime CaO. Collect by downward displacement of air"],
+["NH_3: Haber process","N_2 + 3H_2 ⇌ 2NH_3","Fe catalyst, Mo promoter, about 450–500 °C, 200 atm"],
+["NH_3 reactions","4NH_3 + 3O_2 → 2N_2 + 6H_2O ; 4NH_3 + 5O_2 → 4NO + 6H_2O (Pt) ; NH_3 + HCl → NH_4Cl","Burns in oxygen with a yellowish-green flame"],
+["HNO_3: laboratory preparation","NaNO_3 + H_2SO_4 (conc.) → NaHSO_4 + HNO_3","Below 200 °C. Use glass apparatus"],
+["HNO_3: Ostwald process","4NH_3 + 5O_2 → 4NO + 6H_2O ; 2NO + O_2 → 2NO_2 ; 4NO_2 + O_2 + 2H_2O → 4HNO_3","Pt-Rh catalyst, about 800 °C"],
+["HNO_3 with copper","Dilute: 3Cu + 8HNO_3 → 3Cu(NO_3)_2 + 2NO + 4H_2O ; Conc.: Cu + 4HNO_3 → Cu(NO_3)_2 + 2NO_2 + 2H_2O",""],
+["HNO_3 as oxidant","C + 4HNO_3 → CO_2 + 4NO_2 + 2H_2O ; S + 6HNO_3 → H_2SO_4 + 6NO_2 + 2H_2O",""],
+["HNO_3 decomposition","4HNO_3 → 4NO_2 + 2H_2O + O_2","Brown colour in sunlight"],
+["H_2SO_4: Contact process","S + O_2 → SO_2 ; 2SO_2 + O_2 ⇌ 2SO_3 ; SO_3 + H_2SO_4 → H_2S_2O_7 ; H_2S_2O_7 + H_2O → 2H_2SO_4","V_2O_5 catalyst, about 450 °C, 1–2 atm"],
+["Conc. H_2SO_4 as oxidant","Cu + 2H_2SO_4 → CuSO_4 + SO_2 + 2H_2O ; C + 2H_2SO_4 → CO_2 + 2SO_2 + 2H_2O ; S + 2H_2SO_4 → 3SO_2 + 2H_2O",""],
+["Conc. H_2SO_4 as dehydrating agent","C_12H_22O_11 → 12C + 11H_2O ; CuSO_4·5H_2O → CuSO_4 + 5H_2O","Sugar chars; blue crystals turn white"],
+["Dilute H_2SO_4","Zn + H_2SO_4 → ZnSO_4 + H_2 ; Na_2CO_3 + H_2SO_4 → Na_2SO_4 + H_2O + CO_2",""]
+],tips:["Always write the conditions: temperature, catalyst, concentration.","Drying agent for NH_3 is quicklime (not conc. H_2SO_4 or P_2O_5)."]},
+
+{id:'c-org',t:'Organic Chemistry',f:[
+{title:'General formulae',tbl:{head:["Family","Formula","Functional group","Suffix"],rows:[["Alkane","C_{n}H_{2n+2}","single bonds","-ane"],["Alkene","C_{n}H_{2n}","C=C","-ene"],["Alkyne","C_{n}H_{2n−2}","C≡C","-yne"],["Alcohol","C_{n}H_{2n+1}OH","−OH","-ol"],["Carboxylic acid","C_{n}H_{2n+1}COOH","−COOH","-oic acid"],["Aldehyde","R−CHO","−CHO","-al"],["Ketone","R−CO−R","C=O","-one"]]}},
+["Carbon prefixes","1 meth, 2 eth, 3 prop, 4 but, 5 pent, 6 hex, 7 hept, 8 oct, 9 non, 10 dec",""],
+["Homologous series","Successive members differ by CH_2 (14 u)",""],
+["Isomerism","Same molecular formula, different structures","C_4H_10: butane and 2-methylpropane. C_5H_12: three isomers"],
+["Alkane: substitution","CH_4 + Cl_2 → CH_3Cl + HCl","In sunlight, step by step"],
+["Alkane: combustion","CH_4 + 2O_2 → CO_2 + 2H_2O",""],
+["Alkene: addition","C_2H_4 + H_2 → C_2H_6 (Ni, 200 °C) ; C_2H_4 + Br_2 → C_2H_4Br_2 ; C_2H_4 + HCl → C_2H_5Cl","Bromine test: reddish-brown colour disappears"],
+["Alkyne: addition","C_2H_2 + 2Br_2 → C_2H_2Br_4",""],
+["Ethyne: preparation","CaC_2 + 2H_2O → Ca(OH)_2 + C_2H_2",""],
+["Methane: preparation","CH_3COONa + NaOH → CH_4 + Na_2CO_3","Heat with soda lime"],
+["Ethene: preparation","C_2H_5OH → C_2H_4 + H_2O","Conc. H_2SO_4 at 170 °C"],
+["Ethanol: fermentation","C_6H_12O_6 → 2C_2H_5OH + 2CO_2","Enzyme zymase"],
+["Ethanol: other methods","C_2H_4 + H_2O → C_2H_5OH (steam, H_3PO_4, high pressure) ; C_2H_5Cl + KOH(aq) → C_2H_5OH + KCl",""],
+["Ethanol: reactions","2C_2H_5OH + 2Na → 2C_2H_5ONa + H_2 ; C_2H_5OH + 3O_2 → 2CO_2 + 3H_2O",""],
+["Esterification","C_2H_5OH + CH_3COOH ⇌ CH_3COOC_2H_5 + H_2O","Conc. H_2SO_4 catalyst. Ester has a fruity smell"],
+["Oxidation of ethanol","C_2H_5OH → CH_3COOH","Acidified K_2Cr_2O_7 (orange → green)"],
+["Ethanoic acid reactions","CH_3COOH + NaOH → CH_3COONa + H_2O ; 2CH_3COOH + Na_2CO_3 → 2CH_3COONa + H_2O + CO_2",""],
+["Polymerisation","n CH_2=CH_2 → [−CH_2−CH_2−]_{n}","Addition polymer: polythene. Condensation polymers lose small molecules"],
+["Denatured spirit","Ethanol made unfit to drink by adding methanol or dyes",""]
+],tips:["Name the longest carbon chain first, then number to give the lowest numbers to the groups.","Alkenes and alkynes undergo addition. Alkanes undergo substitution."]}
+]};
+
+const $=s=>document.querySelector(s);
+const order=['m','p','c'];
+const SHORT={m:'Maths',p:'Physics',c:'Chemistry'};
+let cur='m', q='', onlyStars=false;
+let stars=new Set();
+try{stars=new Set(JSON.parse(localStorage.getItem('anvi-stars')||'[]'));}catch(e){}
+function saveStars(){try{localStorage.setItem('anvi-stars',JSON.stringify([...stars]));}catch(e){}}
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmt(s){
+  s=esc(s);
+  s=s.replace(/\^\{([^{}]*)\}/g,'<sup>$1</sup>').replace(/_\{([^{}]*)\}/g,'<sub>$1</sub>').replace(/_(\d+)/g,'<sub>$1</sub>');
+  s=s.replace(/√⟨(.+?)⟩/g,'<span class="rad">√<span class="ov">$1</span></span>');
+  s=s.replace(/\{\{(.+?)\|\|(.+?)\}\}/g,'<span class="fr"><span class="nu">$1</span><span class="de">$2</span></span>');
+  return s;
+}
+
+function countFormulas(S){let n=0;S.ch.forEach(c=>n+=c.f.length);return n;}
+
+function cardHTML(e,id){
+  const star='<button class="star" aria-pressed="false" aria-label="Star this card" title="Star this card">☆</button>';
+  if(Array.isArray(e)){
+    const [label,expr,note,flag]=e;
+    const badge=(note&&/Cross-check/.test(note))?'<span class="badge">Cross-check</span>':'';
+    const cleanNote=note?note.replace(/\.?\s*Cross-check\.?$/,'').replace(/^Cross-check\.?\s*/,'').replace(/\.\s*Cross-check\.\s*/,'. '):'';
+    return `<article class="card" data-id="${id}"><div class="clabel">${fmt(label)}${badge}</div><div class="formula">${fmt(expr)}</div>${cleanNote?`<div class="cnote">${fmt(cleanNote)}</div>`:''}${star}</article>`;
+  }
+  if(e.tbl){
+    const h='<tr>'+e.tbl.head.map(x=>`<th>${fmt(x)}</th>`).join('')+'</tr>';
+    const r=e.tbl.rows.map(row=>'<tr>'+row.map(x=>`<td>${fmt(x)}</td>`).join('')+'</tr>').join('');
+    return `<article class="card wide" data-id="${id}"><div class="clabel">${fmt(e.title||'')}</div><div class="tw"><table><thead>${h}</thead><tbody>${r}</tbody></table></div>${star}</article>`;
+  }
+  if(e.list){
+    return `<article class="card wide" data-id="${id}"><div class="clabel">${fmt(e.title||'')}</div><ul>${e.list.map(x=>`<li>${fmt(x)}</li>`).join('')}</ul>${star}</article>`;
+  }
+  return '';
+}
+
+function build(){
+  const tabs=$('#tabs');
+  tabs.innerHTML=order.map(s=>`<button class="tab" role="tab" data-s="${s}" aria-selected="${s===cur}">${DATA[s].name}<small>${countFormulas(DATA[s])}</small></button>`).join('');
+  const main=$('#main');
+  let html='';
+  order.forEach(s=>{
+    const S=DATA[s];
+    html+=`<section class="subject" data-sub="${s}"><h2 class="subject-title" hidden>${S.name}</h2>`;
+    S.ch.forEach(ch=>{
+      html+=`<section class="chap" id="${ch.id}"><div class="chead"><h2>${fmt(ch.t)}</h2><span class="ccount">${ch.f.length} ${ch.f.length===1?'card':'cards'}</span></div><div class="grid">`;
+      ch.f.forEach((e,i)=>{html+=cardHTML(e,`${ch.id}-${i}`);});
+      html+='</div>';
+      if(ch.tips&&ch.tips.length){html+=`<details class="traps"><summary>Exam traps</summary><ul>${ch.tips.map(t=>`<li>${fmt(t)}</li>`).join('')}</ul></details>`;}
+      html+='</section>';
+    });
+    html+='</section>';
+  });
+  html+='<div class="empty" id="empty" hidden></div>';
+  main.innerHTML=html;
+  main.querySelectorAll('.card').forEach(c=>{
+    c.dataset.text=c.textContent.toLowerCase();
+    if(stars.has(c.dataset.id)){const b=c.querySelector('.star');b.setAttribute('aria-pressed','true');b.textContent='★';}
+  });
+  buildToc();
+}
+
+function buildToc(){
+  const toc=$('#toc');
+  toc.innerHTML=DATA[cur].ch.map(c=>`<a href="#${c.id}">${fmt(c.t)}</a>`).join('');
+}
+
+function apply(){
+  const searching=q.length>0||onlyStars;
+  document.body.dataset.sub=cur;
+  document.querySelectorAll('.subject').forEach(sec=>{sec.hidden=searching?false:sec.dataset.sub!==cur;});
+  let total=0;
+  document.querySelectorAll('.subject').forEach(sec=>{
+    let subTotal=0;
+    sec.querySelectorAll('.chap').forEach(ch=>{
+      let vis=0;
+      ch.querySelectorAll('.card').forEach(c=>{
+        const ok=(!q||c.dataset.text.includes(q))&&(!onlyStars||stars.has(c.dataset.id));
+        c.hidden=!ok; if(ok)vis++;
+      });
+      const tr=ch.querySelector('.traps'); if(tr)tr.hidden=searching;
+      ch.hidden=vis===0; subTotal+=vis;
+    });
+    const t=sec.querySelector('.subject-title'); if(t)t.hidden=!(searching&&subTotal>0);
+    total+=subTotal;
+  });
+  const empty=$('#empty');
+  empty.hidden=total!==0;
+  if(total===0){empty.textContent=onlyStars&&!q?'No starred cards yet. Tap ☆ on any card to add it here.':'No match found. Try a shorter word, such as “mole” or “tan”.';}
+  $('#toc').hidden=searching;
+  document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',String(!searching&&t.dataset.s===cur)));
+  $('#starBtn').setAttribute('aria-pressed',String(onlyStars));
+  $('#starCount').textContent=stars.size;
+}
+
+$('#tabs').addEventListener('click',e=>{
+  const b=e.target.closest('.tab'); if(!b)return;
+  cur=b.dataset.s; q=''; onlyStars=false; $('#q').value='';
+  buildToc(); apply(); window.scrollTo({top:0});
+});
+$('#q').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();apply();});
+$('#starBtn').addEventListener('click',()=>{onlyStars=!onlyStars;apply();});
+$('#main').addEventListener('click',e=>{
+  const b=e.target.closest('.star'); if(!b)return;
+  const id=b.closest('.card').dataset.id;
+  if(stars.has(id)){stars.delete(id);b.setAttribute('aria-pressed','false');b.textContent='☆';}
+  else{stars.add(id);b.setAttribute('aria-pressed','true');b.textContent='★';}
+  saveStars(); apply();
+});
+const THEMES=['auto','light','paper','charcoal','board','black'];
+function setTheme(t,save){
+  if(!THEMES.includes(t))t='auto';
+  if(t==='auto')document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.dataset.theme=t;
+  $('#themeSel').value=t;
+  if(save){try{localStorage.setItem('anvi-theme',t);}catch(e){}}
+}
+$('#themeSel').addEventListener('change',e=>setTheme(e.target.value,true));
+$('#printBtn').addEventListener('click',()=>window.print());
+window.addEventListener('beforeprint',()=>{
+  document.querySelectorAll('.subject').forEach(s=>s.hidden=false);
+  document.querySelectorAll('details').forEach(d=>d.open=true);
+});
+window.addEventListener('afterprint',apply);
+
+try{let t=localStorage.getItem('anvi-theme')||'auto'; if(t==='dark')t='charcoal'; setTheme(t,false);}catch(e){setTheme('auto',false);}
+
+function setBar(){
+  const h=$('#bar').offsetHeight;
+  document.documentElement.style.setProperty('--bar-h',h+'px');
+}
+build(); apply(); setBar();
+window.addEventListener('resize',setBar);
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
+if(window.ResizeObserver){new ResizeObserver(setBar).observe($('#bar'));}
+</script>
+</body>
+</html>
